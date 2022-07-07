@@ -10,7 +10,12 @@ const headers = {
 
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?title=${event.queryStringParameters.bookQuery}&api-key=tLRRtGImsAB3xeeotXUtLy5vrdg9uHaf)`, {
+      headers: {
+        Authorization: `Bearer ${process.env.BOOK_KEY}`,
+      }
+    });
+    
     const data = await response.json();
     const json = JSON.stringify(data);
     
