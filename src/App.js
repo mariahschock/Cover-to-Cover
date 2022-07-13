@@ -1,5 +1,5 @@
 import './App.css';
-import BookSearch from './Book';
+import BookSearch from './BookSearch';
 
 function App() {
   return (
